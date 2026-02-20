@@ -9,7 +9,7 @@ int multiplyNumbers(int x, int y) {
 }
 
 int main(void) {
-    int a, b = 5; //uninitvar, legacyUninitvar
+    int a = 5, b = 5; //uninitvar, legacyUninitvar
     int result = multiplyNumbers(a, b);
 
     int arr[NUM_ELEMENTS];

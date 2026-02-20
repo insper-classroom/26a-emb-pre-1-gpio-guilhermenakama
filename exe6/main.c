@@ -42,7 +42,6 @@ void seven_seg_display() {
 
 int main() {
     stdio_init_all();
-    int aux = 0;
 
     BUTTON_GPIO = FIRST_GPIO + 7;
 
@@ -60,7 +59,7 @@ int main() {
                 cnt = 0;
             }
             seven_seg_display();
-            printf("cnt: %l\n", cnt);
+            printf("cnt: %d\n", cnt);
         }
         last_btn = btn;
         sleep_ms(10); // Polling interval
