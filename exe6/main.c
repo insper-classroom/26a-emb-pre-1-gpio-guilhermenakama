@@ -5,7 +5,6 @@
 
 int FIRST_GPIO = 2;
 const int BTN_PIN_G = 28;
-int cnt = 0;
 
 // This array converts a number 0-9 to a bit pattern to send to the GPIOs
 int bits[10] = {
@@ -29,7 +28,7 @@ void seven_seg_init() {
     }
 }
 
-void seven_seg_display() {
+void seven_seg_display(int cnt) {
     int value = bits[cnt];
     for (int i = 0; i < 7; i++) {
         int gpio = FIRST_GPIO + i;
@@ -40,6 +39,7 @@ void seven_seg_display() {
 
 int main() {
     int last_btn = 0; // Button not pressed (pulled up)
+    int cnt = 0;
     stdio_init_all();
 
     gpio_init(BTN_PIN_G);
@@ -55,7 +55,7 @@ int main() {
             if (++cnt > 9) {
                 cnt = 0;
             }
-            seven_seg_display();
+            seven_seg_display(cnt);
             printf("cnt: %d\n", cnt);
         }
         last_btn = btn;
