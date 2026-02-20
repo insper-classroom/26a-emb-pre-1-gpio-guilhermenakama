@@ -47,7 +47,7 @@ int main() {
     gpio_pull_up(BTN_PIN_G);
 
     seven_seg_init();
-    seven_seg_display();
+    seven_seg_display(cnt);
 
     while (true) {
         int btn = gpio_get(BTN_PIN_G);
